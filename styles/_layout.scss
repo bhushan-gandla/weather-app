@@ -1,0 +1,126 @@
+
+body{
+    font-family: $font-family-stack;
+    background-color: $background-color;
+    color: $highlight-color;
+    font-size: 1.5rem;
+}
+@keyframes welcome-animation {
+    from {
+        transform: rotate(0deg) scale(5);
+      }
+      to {
+        transform: rotate(360deg) scale(5);
+      }
+  }
+  
+.landing-page{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left: -50vw;
+    background: linear-gradient(var(--welcome-direction), var(--day-bg-color) 0%, var(--night-bg-color) 100%);
+    // animation-name: welcome-animation;
+    // animation-duration: 10s;
+
+    animation: welcome-animation linear 60s infinite;
+}
+
+
+@keyframes sun-moon-rotate {
+    from {
+        // transform: rotate(0deg);
+        transform: translate(25vh,-25vw);
+
+    }
+    to {
+        // transform: rotate(360deg);
+        transform: translate(25vw, 75vh);
+    }
+}
+.sun-moon-wrapper{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    right: -10vw;
+    left: -10vw;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+
+    // animation: sun-moon-rotate linear 60s infinite;
+}
+
+
+.sun{
+    height: 50vh;
+    width: 50vh;
+    border-radius: 50%;
+    background-color: yellow;
+    // background: radial-gradient(50% 50% at 50% 50%, #FF8717 0%, rgba(255, 199, 0, 0.54) 75%, rgba(255, 199, 0, 0) 100%);
+    // filter: blur(4.5px);
+    display: inline-flex;
+
+    // animation: rotateOval 5s linear infinite; 
+}
+
+
+.moon{
+    height: 50vh;
+    width: 50vh;
+    border-radius: 50%;
+    background-color: grey;
+    // background: radial-gradient(50% 50% at 50% 50%, #BFBEBE 0%, rgba(218, 218, 218, 0) 100%);
+    // filter: blur(7px);
+    display: inline-flex;
+    
+    // animation: welcome-animation linear 60s infinite;
+}
+
+
+
+// .rotating-element {
+//     position: fixed; /* Position the element relative to the viewport */
+//     width: 50px;
+//     height: 50px;
+//     background-color: red;
+//     border-radius: 50%; /* Make it circular */
+//     animation: rotateOval 5s linear infinite; /* Adjust the animation duration as needed */
+//   }
+.moving-element {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    border-radius: 50%;
+    animation: moveCircularPath 6s linear infinite;
+  }
+  
+
+@keyframes moveCircularPath {
+    0% {
+      top: 50%;
+      left: 0;
+    }
+    25% {
+      top: 0;
+      left: calc(50% - 25px); /* (viewport_width - element_width) / 2 */
+    }
+    50% {
+      top: 50%;
+      left: calc(100% - 50px);
+    }
+    75% {
+      top: 100%;
+      left: calc(50% - 25px);
+    }
+    100% {
+      top: 50%;
+      left: 0;
+    }
+  }

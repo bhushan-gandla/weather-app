@@ -1,1 +1,1 @@
-# weather-app
+# learn-java-script
