@@ -7,24 +7,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=Inter:wght@300;400;500;700&display=swap');
+    </style>
 </head>
 <body>
-    <div class="landing-page">
-    </div>
+    <div class="landing-page"></div>
     <div class="sun-moon-wrapper">
         <div class="sun-moon-path">
             <div class="sun"></div>
-        
             <div class="moon"></div>
-    
         </div>
     </div>
+    
+    <div class="controls-layer">
+        <h1 class="text-animation">Weather</h1>
+        <form class="city-search-wrapper">
+            <div class="city-search-background-blurer"></div>
+            <input class="city-input" aria-label="Search for city" type="text" value="atlanta" id="cityInput">
+            <button type="submit" class="city-submit" id="citySubmit" aria-label="Submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
+            </button>
+        </form> 
+        <p class="text-animation">Search for a city and hit enter</p>
+    </div>
 
-    <!-- <div class="rotating-element"></div> -->
-
-    <h2 id="cityName">City status</h2>
-    <input type="text" value="atlanta" id="cityInput">
-    <button id="citySubmit">Submit</button>
+    <!-- <h2 id="cityName">City status</h2> -->
 
     
     <script src="scripts.js"> </script>

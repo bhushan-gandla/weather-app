@@ -1,0 +1,219 @@
+// landing page background
+@keyframes welcome-animation {
+    from {
+        transform: rotate(0deg) scale(5);
+    }
+
+    to {
+        transform: rotate(360deg) scale(5);
+    }
+}
+
+.landing-page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -50vw;
+    transform: rotate(0deg) scale(5);
+    background: linear-gradient(var(--welcome-direction), var(--day-bg-color) 0%, var(--night-bg-color) 100%);
+    animation: welcome-animation linear 30s 3s infinite;
+}
+
+// sun moon positioner
+.sun-moon-wrapper {
+    height: 200vh;
+    width: 200vw;
+    position: fixed;
+    top: -50vh;
+    left: -50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// sun moon path
+.sun-moon-path {
+    height: 110vw;
+    width: 110vw;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: sun-moon-path-rotate linear 30s 3s infinite;
+}
+
+.sun {
+    height: var(--sun-moon-dimensions);
+    width: var(--sun-moon-dimensions);
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #FF8717 0%, rgba(255, 199, 0, 0.54) 75%, rgba(255, 199, 0, 0) 100%);
+    filter: blur(4.5px);
+    display: inline-flex;
+}
+
+.moon {
+    height: var(--sun-moon-dimensions);
+    width: var(--sun-moon-dimensions);
+    border-radius: 50%;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #6C6C6C 0%, rgba(139, 139, 139, 0.54) 75%, rgba(211, 211, 211, 0.00) 100%);
+    filter: blur(7px);
+    display: inline-flex;
+}
+
+@keyframes sun-moon-path-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+// input control
+.controls-layer {
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    padding: 6rem 1rem 6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        letter-spacing: 1.6rem;
+        text-transform: uppercase;
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    p {
+        margin-bottom: 0;
+        font-size: 1.375rem;
+        font-weight: 300;
+    }
+}
+
+.city-search-wrapper {
+    position: relative;
+    height: 7rem;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+    // animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: city-search-animation ease-in 3s;
+    animation-fill-mode: forwards;
+
+    .city-search-background-blurer {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border-radius: 3.5rem;
+        background: rgba(255, 255, 255, 0.40);
+        filter: blur(1.5px);
+    }
+}
+@keyframes city-search-animation {
+    0% {
+        height: 7rem;
+        width: 7rem;
+    }
+    60% {
+        height: 7rem;
+        width: 7rem;
+    }
+    100% {
+        width: 50vw;
+        padding: 0 1rem 0 2rem;
+    }
+}
+
+.city-input {
+    position: relative;
+    z-index: 3;
+    width: 80%;
+    height: 90%;
+    border: none;
+    background-color: transparent;
+    color: $text-color;
+    text-transform: uppercase;
+    letter-spacing: $text-letter-spacing;
+    flex-grow: 1;
+    animation: city-input-animation ease-in 2s 1s;
+    // opacity: 0;
+}
+@keyframes city-input-animation {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.city-submit {
+    height: 5rem;
+    width: 5rem;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    
+    animation: city-submit-animation ease-in 2s 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        border-radius: 2.5rem;
+        background: rgba(255, 255, 255, 0.40);
+        filter: blur(1.5px);
+    }
+}
+
+@keyframes city-submit-animation {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    98%{
+        margin-left: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 1rem;
+    }
+}
+
+.text-animation{
+    opacity: 0;
+    animation: text-animation ease-in 2s 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes text-animation{
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
