@@ -46,7 +46,10 @@
         text-align: center;
         position: relative;
         z-index: 1;
-
+        text-transform: lowercase;
+        &::first-letter{
+            text-transform: capitalize;
+        }
         @media only screen and (min-width: 768px) {
             font-size: 2.75rem;
         }
@@ -82,7 +85,8 @@
         }
 
         &.night {
-            background: linear-gradient(180deg, #28D8FF 0%, rgba(197, 245, 255, 0.11) 100%);
+            background: linear-gradient(180deg, #034684 0%, rgba(0, 17, 32, 0.54) 100%);
+            color: $night-text-color;
         }
     }
 
@@ -94,11 +98,12 @@
         }
 
         &.night {
-            background: linear-gradient(180deg, #D4D4D4 0%, rgba(231, 231, 231, 0.28) 100%);
+            background: linear-gradient(180deg, #3C6B97 0%, rgba(0, 17, 32, 0.42) 100%);
+            color: $night-text-color;
         }
     }
 
-    .day-cloud {
+    .generic-cloud {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='737' height='453' viewBox='0 0 737 453' fill='none'%3E%3Cg filter='url(%23filter0_f_19_48)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M98.0364 204.937C98.0028 203.461 97.9859 201.98 97.9859 200.496C97.9859 94.7357 183.722 9 289.482 9C364.765 9 429.901 52.442 461.191 115.625C474.464 110.664 488.833 107.951 503.837 107.951C556.337 107.951 601.079 141.165 618.199 187.725C680.957 200.277 728 252.222 728 314.397C728 354.953 707.984 391.156 676.647 414.913C655.396 433.026 627.837 443.959 597.726 443.959H588.827H130.732C63.5012 443.959 9 389.458 9 322.228C9 266.323 46.6844 219.221 98.0364 204.937Z' fill='url(%23paint0_linear_19_48)'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_19_48' x='0' y='0' width='737' height='452.959' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='4.5' result='effect1_foregroundBlur_19_48'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_19_48' x1='368.5' y1='9' x2='368.5' y2='443.959' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23919191'/%3E%3Cstop offset='1' stop-color='%23D8FFFD' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: center;
@@ -112,55 +117,53 @@
         }
 
         &.night {
-            background: linear-gradient(180deg, #D4D4D4 0%, rgba(231, 231, 231, 0.28) 100%);
+            background: linear-gradient(180deg, #3C6B97 0%, rgba(0, 17, 32, 0.42) 100%);
         }
 
-        .day-cloud {
-            &.cloud-1 {
-                width: 51vw;
-                height: calc(100% - 6rem);
-                position: absolute;
-                left: 5%;
-                background-position-x: 0px;
-                background-position-y: 29vh;
-                animation: cloud-1 linear 90s infinite;
+        .cloud-1 {
+            width: 51vw;
+            height: calc(100% - 6rem);
+            position: absolute;
+            left: 5%;
+            background-position-x: 0px;
+            background-position-y: 29vh;
+            animation: cloud-1 linear 90s infinite;
 
-                @media only screen and (min-width: 768px) {
-                    width: 31vw;
-                    background-position-y: 26vh;
-                }
+            @media only screen and (min-width: 768px) {
+                width: 31vw;
+                background-position-y: 26vh;
             }
+        }
 
-            &.cloud-2 {
-                width: 50%;
-                height: calc(100% - 6rem);
-                position: absolute;
-                left: 20%;
-                background-position-x: 0px;
+        .cloud-2 {
+            width: 50%;
+            height: calc(100% - 6rem);
+            position: absolute;
+            left: 20%;
+            background-position-x: 0px;
+            background-position-y: 20%;
+            z-index: -1;
+            animation: cloud-2 linear 180s infinite;
+
+            @media only screen and (min-width: 768px) {
                 background-position-y: 20%;
-                z-index: -1;
-                animation: cloud-2 linear 180s infinite;
-
-                @media only screen and (min-width: 768px) {
-                    background-position-y: 20%;
-                }
-
             }
 
-            &.cloud-3 {
-                width: 46vw;
-                height: calc(100% - 6rem);
-                position: absolute;
-                right: 8%;
-                background-position-x: 0px;
-                background-position-y: 30vh;
-                @include flip-vertical;
-                animation: cloud-3 linear 70s infinite;
+        }
 
-                @media only screen and (min-width: 768px) {
-                    width: 25vw;
-                    background-position-y: 30vh;
-                }
+        .cloud-3 {
+            width: 46vw;
+            height: calc(100% - 6rem);
+            position: absolute;
+            right: 8%;
+            background-position-x: 0px;
+            background-position-y: 30vh;
+            @include flip-vertical;
+            animation: cloud-3 linear 70s infinite;
+
+            @media only screen and (min-width: 768px) {
+                width: 25vw;
+                background-position-y: 30vh;
             }
         }
 
@@ -207,9 +210,9 @@
 
     &.shower-rain {
 
-        .day-cloud.cloud-1,
-        .day-cloud.cloud-2,
-        .day-cloud.cloud-3 {
+        .cloud-1,
+        .cloud-2,
+        .cloud-3 {
             animation: none;
         }
     }
@@ -304,6 +307,16 @@
         //     }
         // }
     }
+
+    &.night{
+        .cloud{
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1048' height='649' viewBox='0 0 1048 649' fill='none'%3E%3Cg filter='url(%23filter0_f_28_479)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.071 294.238C144.024 292.165 144 290.085 144 288C144 139.435 264.435 19 413 19C518.752 19 610.251 80.0242 654.205 168.78C672.849 161.81 693.035 158 714.11 158C787.858 158 850.709 204.655 874.758 270.06C962.916 287.691 1029 360.661 1029 448C1029 504.97 1000.88 555.826 956.864 589.198C927.011 614.642 888.299 630 846 630H833.5H190C95.5593 630 19 553.441 19 459C19 380.47 71.9359 314.304 144.071 294.238Z' fill='url(%23paint0_linear_28_479)'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_28_479' x='0' y='0' width='1048' height='649' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='9.5' result='effect1_foregroundBlur_28_479'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_28_479' x1='524' y1='19' x2='524' y2='630' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23979797' stop-opacity='0.86'/%3E%3Cstop offset='0.859375' stop-color='%23EAEAEA' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") !important;
+        }
+        .sun{
+            background: radial-gradient(50% 50% at 50% 50%, #6C6C6C 0%, rgba(139, 139, 139, 0.54) 75%, rgba(211, 211, 211, 0.00) 100%) !important;
+            filter: blur(0px) !important;
+        }
+    } 
 
 }
 
