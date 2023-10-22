@@ -511,6 +511,30 @@ html {
   --day-bg-color: #D8FFFD;
   --night-bg-color: #2F6B9B;
   --welcome-direction: 90deg;
+  --cloud-width-1: 36vw;
+  --cloud-background-position-y-1: 0vh;
+  --cloud-position-1: 4%;
+  --cloud-width-2: 32vw;
+  --cloud-background-position-y-2: 0vh;
+  --cloud-position-2: 38%;
+  --cloud-width-3: 43vw;
+  --cloud-background-position-y-3: 0vh;
+  --cloud-position-3: -3%;
+  --cloud-width-4: 40vw;
+  --cloud-background-position-y-4: 28vh;
+  --cloud-position-4: -10%;
+  --cloud-width-5: 53vw;
+  --cloud-background-position-y-5: 17vh;
+  --cloud-position-5: 23%;
+  --cloud-width-6: 40vw;
+  --cloud-background-position-y-6: 34vh;
+  --cloud-position-6: -4%;
+  --cloud-width-7: 55vw;
+  --cloud-background-position-y-7: 54vh;
+  --cloud-position-7: 0%;
+  --cloud-width-8: 46vw;
+  --cloud-background-position-y-8: 66vh;
+  --cloud-position-8: -3%;
 }
 
 body {
@@ -771,9 +795,6 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
-  &::first-letter{
-    text-transform:capitalize;
-  }
 }
 @media only screen and (min-width: 768px) {
   .city-layer .weather-status {
@@ -914,14 +935,22 @@ body {
 .city-layer.shower-rain .day-cloud.cloud-3 {
   animation: none;
 }
+.city-layer.broken-clouds .background-animator {
+  padding-bottom: 0;
+  padding-top: 0;
+}
 .city-layer.broken-clouds .cloud-1 {
   width: var(--cloud-width-1);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
   left: var(--cloud-position-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-1);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-1 {
@@ -931,12 +960,16 @@ body {
 }
 .city-layer.broken-clouds .cloud-2 {
   width: var(--cloud-width-2);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
-  right: var(--cloud-position-2);
+  left: var(--cloud-position-2);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-2);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-2 {
@@ -946,12 +979,11 @@ body {
 }
 .city-layer.broken-clouds .cloud-3 {
   width: var(--cloud-width-3);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
-  left: var(--cloud-position-3);
+  right: var(--cloud-position-3);
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-3);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-3 {
@@ -961,12 +993,16 @@ body {
 }
 .city-layer.broken-clouds .cloud-4 {
   width: var(--cloud-width-4);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
-  right: var(--cloud-position-4);
+  left: var(--cloud-position-4);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-4);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-4 {
@@ -976,12 +1012,16 @@ body {
 }
 .city-layer.broken-clouds .cloud-5 {
   width: var(--cloud-width-5);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
   left: var(--cloud-position-5);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-5);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-5 {
@@ -991,12 +1031,12 @@ body {
 }
 .city-layer.broken-clouds .cloud-6 {
   width: var(--cloud-width-6);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
   right: var(--cloud-position-6);
+  z-index: -10;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-6);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-6 {
@@ -1006,12 +1046,17 @@ body {
 }
 .city-layer.broken-clouds .cloud-7 {
   width: var(--cloud-width-7);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
   left: var(--cloud-position-7);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  z-index: -10;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-7);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-7 {
@@ -1021,11 +1066,12 @@ body {
 }
 .city-layer.broken-clouds .cloud-8 {
   width: var(--cloud-width-8);
-  height: calc(100% - 6rem);
+  height: 100%;
   position: absolute;
+  right: var(--cloud-position-8);
+  z-index: -10;
   background-position-x: 0px;
   background-position-y: var(--cloud-background-position-y-8);
-  animation: none;
 }
 @media only screen and (min-width: 768px) {
   .city-layer.broken-clouds .cloud-8 {

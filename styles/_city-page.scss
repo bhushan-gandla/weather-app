@@ -217,6 +217,11 @@
 
 
     &.broken-clouds {
+        
+        .background-animator{
+            padding-bottom: 0;
+            padding-top: 0;
+        }
         @for $i from 1 through 8 {
             .cloud-#{$i} {
                 // background-color: lighten(red, $i * 5%);
@@ -224,15 +229,21 @@
 
                 // --cloud-width-#{$i}: math.random(100) + vw;
                 width: var(--cloud-width-#{$i});
-                height: calc(100% - 6rem);
+                height: 100%;
                 position: absolute;
 
-                @if $i ==1 or $i ==3 or $i ==5 or $i ==7 {
+                @if $i ==1 or $i ==2 or $i ==4 or $i ==5  or $i ==7 {
                     left: var(--cloud-position-#{$i});
+                    @include flip-vertical;
                 }
 
-                @else if $i ==2 or $i ==4 or $i ==6 {
+                @else if  $i ==3 or $i ==6 or  $i ==8 { 
                     right: var(--cloud-position-#{$i});
+                }
+
+
+                @if $i ==6 or $i ==7  or $i ==8{
+                    z-index: -10;
                 }
 
                 background-position-x: 0px;
@@ -240,7 +251,7 @@
                 // animation: cloud-1 linear 90s infinite;
 
 
-                animation: none;
+                // animation: none;
 
                 @media only screen and (min-width: 768px) {
                     width: calc(var(--cloud-width-#{$i}) - 5%);
@@ -455,7 +466,6 @@
 
 
 // rain
-
 .rain {
     position: absolute;
     left: 0;
@@ -521,8 +531,6 @@
 }
 
 // snow
-
-
 .snow {
     position: fixed;
     inset: 0;

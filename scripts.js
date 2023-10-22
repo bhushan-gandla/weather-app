@@ -86,7 +86,7 @@ function bindData(weatherData){
   dataCityWeatherDescription.innerHTML = weatherData.weather[0].description;
   // dataCountryName.innerHTML = "US ";
 
-  createWeatherMood(weatherData.weather[0].icon);
+  // createWeatherMood(weatherData.weather[0].icon);
 }
 
 function createWeatherMood(weatherDescription){
@@ -204,4 +204,4 @@ function createStylingForBrokenClouds(){
   }
 }
 
-createStylingForBrokenClouds();
+// createStylingForBrokenClouds();
